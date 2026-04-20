@@ -64,7 +64,7 @@ internal extension ContentView {
 
     func hideRecordingWindow() {
         let recordWindow = NSApp.windows.first { window in
-            window.title == "AudioWhisper Recording"
+            window.title == "Waybetter Recording"
         }
         if let window = recordWindow {
             window.orderOut(nil)

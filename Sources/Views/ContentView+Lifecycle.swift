@@ -69,7 +69,7 @@ internal extension ContentView {
                     isProcessing = false
                 } else {
                     let recordWindow = NSApp.windows.first { window in
-                        window.title == "AudioWhisper Recording"
+                        window.title == "Waybetter Recording"
                     }
                     
                     if let window = recordWindow {

@@ -47,7 +47,7 @@ internal class WindowController {
         
         // Use provided window or find the recording window by title
         let recordWindow = window ?? NSApp.windows.first { window in
-            window.title == "AudioWhisper Recording"
+            window.title == "Waybetter Recording"
         }
         
         if let window = recordWindow {
@@ -173,7 +173,7 @@ internal class WindowController {
         }
 
         // Hide recording window if open to avoid overlap
-        if let recordWindow = NSApp.windows.first(where: { $0.title == "AudioWhisper Recording" }), recordWindow.isVisible {
+        if let recordWindow = NSApp.windows.first(where: { $0.title == "Waybetter Recording" }), recordWindow.isVisible {
             recordWindow.orderOut(nil)
         }
 
