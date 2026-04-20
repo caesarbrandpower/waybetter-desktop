@@ -1,6 +1,6 @@
 import XCTest
 import HotKey
-@testable import AudioWhisper
+@testable import WaybetterDesktop
 
 final class HotKeyManagerTests: XCTestCase {
     

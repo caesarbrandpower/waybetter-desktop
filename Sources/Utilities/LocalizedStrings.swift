@@ -40,8 +40,8 @@ internal enum LocalizedStrings {
             value: "Microphone Access Required", 
             comment: "Title for microphone permission alert")
         
-        static let microphoneAccessMessage = NSLocalizedString("alerts.microphone_access_message", 
-            value: "AudioWhisper needs microphone access to record audio. Please enable microphone access in System Settings > Privacy & Security > Microphone.", 
+        static let microphoneAccessMessage = NSLocalizedString("alerts.microphone_access_message",
+            value: "Waybetter Desktop needs microphone access to record audio. Please enable microphone access in System Settings > Privacy & Security > Microphone.",
             comment: "Message explaining why microphone access is needed")
         
         static let openSystemSettings = NSLocalizedString("alerts.open_system_settings", 
@@ -140,15 +140,15 @@ internal enum LocalizedStrings {
     
     // MARK: - Settings
     enum Settings {
-        static let title = NSLocalizedString("settings.title", 
-            value: "AudioWhisper Settings", 
+        static let title = NSLocalizedString("settings.title",
+            value: "Waybetter Desktop Settings",
             comment: "Settings window title")
     }
     
     // MARK: - Accessibility
     enum Accessibility {
-        static let microphoneIcon = NSLocalizedString("accessibility.microphone_icon", 
-            value: "AudioWhisper", 
+        static let microphoneIcon = NSLocalizedString("accessibility.microphone_icon",
+            value: "Waybetter Desktop",
             comment: "Accessibility description for microphone icon")
         
         static let recordingButton = NSLocalizedString("accessibility.recording_button", 

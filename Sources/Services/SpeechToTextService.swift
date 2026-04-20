@@ -139,7 +139,7 @@ internal class SpeechToTextService {
 
     private func transcribeWithOpenAI(audioURL: URL) async throws -> String {
         // Get API key from keychain
-        guard let apiKey = keychainService.getQuietly(service: "AudioWhisper", account: "OpenAI") else {
+        guard let apiKey = keychainService.getQuietly(service: "WaybetterDesktop", account: "OpenAI") else {
             throw SpeechToTextError.apiKeyMissing("OpenAI")
         }
 
@@ -177,7 +177,7 @@ internal class SpeechToTextService {
     
     private func transcribeWithGemini(audioURL: URL) async throws -> String {
         // Get API key from keychain
-        guard let apiKey = keychainService.getQuietly(service: "AudioWhisper", account: "Gemini") else {
+        guard let apiKey = keychainService.getQuietly(service: "WaybetterDesktop", account: "Gemini") else {
             throw SpeechToTextError.apiKeyMissing("Gemini")
         }
         

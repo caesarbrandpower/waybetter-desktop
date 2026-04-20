@@ -2,7 +2,7 @@ import XCTest
 import SwiftUI
 import AppKit
 import CoreGraphics
-@testable import AudioWhisper
+@testable import WaybetterDesktop
 
 /// Lightweight snapshot helper built on XCTest + ImageRenderer.
 @MainActor

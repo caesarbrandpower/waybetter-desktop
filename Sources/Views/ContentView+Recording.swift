@@ -79,6 +79,13 @@ internal extension ContentView {
 
                 NSPasteboard.general.clearContents()
                 NSPasteboard.general.setString(finalText, forType: .string)
+
+                // Save audio file and transcript to output folder
+                let shouldSaveFiles = UserDefaults.standard.object(forKey: AppDefaults.Keys.waybetterSaveFiles) as? Bool ?? true
+                if shouldSaveFiles {
+                    WaybetterFileManager.shared.saveRecording(audioURL: audioURL, transcript: finalText)
+                }
+
                 let shouldSave: Bool = await MainActor.run { DataManager.shared.isHistoryEnabled }
                 if shouldSave {
                     let modelUsed: String? = await MainActor.run { (transcriptionProvider == .local) ? self.selectedWhisperModel.rawValue : nil }
@@ -282,7 +289,7 @@ internal extension ContentView {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 let recordWindow = NSApp.windows.first { window in
-                    window.title == "AudioWhisper Recording"
+                    window.title == "Waybetter Recording"
                 }
                 
                 if let window = recordWindow {

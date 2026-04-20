@@ -1,6 +1,6 @@
 import Foundation
 import XCTest
-@testable import AudioWhisper
+@testable import WaybetterDesktop
 
 final class UvBootstrapTests: XCTestCase {
     private var originalHome: String?

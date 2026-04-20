@@ -11,8 +11,18 @@ internal struct DashboardPreferencesView: View {
     @AppStorage("transcriptionHistoryEnabled") private var transcriptionHistoryEnabled = false
     @AppStorage("transcriptionRetentionPeriod") private var transcriptionRetentionPeriodRaw = RetentionPeriod.oneMonth.rawValue
     @AppStorage("maxModelStorageGB") private var maxModelStorageGB = 5.0
+    @AppStorage("waybetterSaveFiles") private var saveFiles = true
+    @AppStorage("waybetterOutputFolder") private var outputFolderPath = ""
 
     @State private var loginItemError: String?
+    @State private var showFolderPicker = false
+
+    private var displayedFolderPath: String {
+        if outputFolderPath.isEmpty {
+            return WaybetterFileManager.shared.defaultFolder.path
+        }
+        return outputFolderPath
+    }
 
     private let storageOptions: [Double] = [1, 2, 5, 10, 20]
 
@@ -29,7 +39,7 @@ internal struct DashboardPreferencesView: View {
                 Toggle(isOn: $startAtLogin) {
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Start at Login")
-                        Text("Launch AudioWhisper when you sign in.")
+                        Text("Launch Waybetter Desktop when you sign in.")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -102,6 +112,52 @@ internal struct DashboardPreferencesView: View {
                 Text("History")
             } footer: {
                 Text("View saved transcripts in the Transcripts section in the sidebar.")
+            }
+
+            Section {
+                Toggle(isOn: $saveFiles) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Save Recordings to Folder")
+                        Text("Save audio and transcript as files after each recording.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
+                if saveFiles {
+                    LabeledContent("Save Location") {
+                        VStack(alignment: .trailing, spacing: 4) {
+                            Text(displayedFolderPath)
+                                .font(.system(.caption, design: .monospaced))
+                                .foregroundStyle(.secondary)
+                                .lineLimit(2)
+                                .multilineTextAlignment(.trailing)
+                            HStack(spacing: 8) {
+                                Button("Choose Folder") {
+                                    showFolderPicker = true
+                                }
+                                Button("Open in Finder") {
+                                    WaybetterFileManager.shared.openOutputFolderInFinder()
+                                }
+                            }
+                        }
+                    }
+                }
+            } header: {
+                Text("Recordings")
+            } footer: {
+                if saveFiles {
+                    Text("Audio and transcript are saved as separate files with matching timestamps. Place the folder inside Google Drive or Dropbox for automatic cloud sync.")
+                }
+            }
+            .fileImporter(
+                isPresented: $showFolderPicker,
+                allowedContentTypes: [.folder]
+            ) { result in
+                if case .success(let url) = result {
+                    WaybetterFileManager.shared.setOutputFolder(url)
+                    outputFolderPath = url.path
+                }
             }
 
             Section("Storage") {

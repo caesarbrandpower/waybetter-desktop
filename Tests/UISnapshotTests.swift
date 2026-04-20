@@ -1,7 +1,7 @@
 import XCTest
 import SwiftUI
 import SwiftData
-@testable import AudioWhisper
+@testable import WaybetterDesktop
 
 @MainActor
 final class UISnapshotTests: SnapshotTestCase {

@@ -1,6 +1,6 @@
 import XCTest
 import SwiftUI
-@testable import AudioWhisper
+@testable import WaybetterDesktop
 
 final class AppStatusTests: XCTestCase {
     

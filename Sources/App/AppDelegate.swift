@@ -1,7 +1,7 @@
 import AppKit
 
 @MainActor
-internal class AppDelegate: NSObject, NSApplicationDelegate {
+internal class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     var statusItem: NSStatusItem?
     var hotKeyManager: HotKeyManager?
     var keyboardEventHandler: KeyboardEventHandler?

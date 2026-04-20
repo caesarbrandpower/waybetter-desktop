@@ -183,7 +183,7 @@ internal class AppSetupHelper {
                 in: .userDomainMask,
                 appropriateFor: nil,
                 create: true
-            ).appendingPathComponent("AudioWhisper/prompts", isDirectory: true)
+            ).appendingPathComponent("WaybetterDesktop/prompts", isDirectory: true)
             if !FileManager.default.fileExists(atPath: base.path) {
                 try FileManager.default.createDirectory(at: base, withIntermediateDirectories: true)
             }

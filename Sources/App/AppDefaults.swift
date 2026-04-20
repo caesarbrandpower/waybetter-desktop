@@ -33,6 +33,9 @@ internal enum AppDefaults {
 
         static let hasSetupLocalLLM = "hasSetupLocalLLM"
         static let hasSetupParakeet = "hasSetupParakeet"
+
+        static let waybetterOutputFolder = "waybetterOutputFolder"
+        static let waybetterSaveFiles = "waybetterSaveFiles"
     }
 
     // Bump when the welcome flow/content needs to be re-shown for existing users.
@@ -71,7 +74,9 @@ internal enum AppDefaults {
             Keys.lastWelcomeVersion: "0",
 
             Keys.hasSetupLocalLLM: false,
-            Keys.hasSetupParakeet: false
+            Keys.hasSetupParakeet: false,
+
+            Keys.waybetterSaveFiles: true
         ])
     }
 }

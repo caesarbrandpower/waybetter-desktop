@@ -33,7 +33,9 @@ internal extension AppDelegate {
             button.action = #selector(toggleRecordWindow)
             button.target = self
         }
-        statusItem?.menu = makeStatusMenu()
+        let menu = makeStatusMenu()
+        menu.delegate = self
+        statusItem?.menu = menu
 
         hotKeyManager = HotKeyManager { [weak self] in
             self?.handleHotkey(source: .standardHotkey)

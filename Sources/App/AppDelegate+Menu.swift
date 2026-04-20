@@ -8,6 +8,28 @@ internal extension AppDelegate {
         menu.addItem(NSMenuItem(title: LocalizedStrings.Menu.record, action: #selector(toggleRecordWindow), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Transcribe Audio File...", action: #selector(transcribeAudioFile), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
+
+        // Open Waybetter folder shortcut
+        menu.addItem(NSMenuItem(title: "Open Waybetter Folder", action: #selector(openWaybetterFolder), keyEquivalent: ""))
+
+        // Recent recordings
+        let recent = WaybetterFileManager.shared.recentRecordings
+        if !recent.isEmpty {
+            menu.addItem(NSMenuItem.separator())
+            let recentHeader = NSMenuItem(title: "Recent Recordings", action: nil, keyEquivalent: "")
+            recentHeader.isEnabled = false
+            menu.addItem(recentHeader)
+
+            for recording in recent {
+                let title = recording.timestamp
+                let item = NSMenuItem(title: title, action: #selector(openRecentRecording(_:)), keyEquivalent: "")
+                item.representedObject = recording
+                item.target = self
+                menu.addItem(item)
+            }
+        }
+
+        menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Dashboard...", action: #selector(showDashboard), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Settings...", action: #selector(showSettings), keyEquivalent: ","))
         menu.addItem(NSMenuItem(title: "Help", action: #selector(showHelp), keyEquivalent: ""))
@@ -73,6 +95,27 @@ internal extension AppDelegate {
                 name: .transcribeAudioFile,
                 object: url
             )
+        }
+    }
+
+    @MainActor @objc func openWaybetterFolder() {
+        WaybetterFileManager.shared.openOutputFolderInFinder()
+    }
+
+    @MainActor @objc func openRecentRecording(_ sender: NSMenuItem) {
+        guard let recording = sender.representedObject as? WaybetterFileManager.RecentRecording else { return }
+        WaybetterFileManager.shared.openRecordingInFinder(recording)
+    }
+
+    // Rebuild menu each time it opens so recent recordings are always current
+    nonisolated func menuNeedsUpdate(_ menu: NSMenu) {
+        Task { @MainActor in
+            menu.removeAllItems()
+            let fresh = self.makeStatusMenu()
+            for item in fresh.items {
+                fresh.removeItem(item)
+                menu.addItem(item)
+            }
         }
     }
 

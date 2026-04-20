@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "AudioWhisper",
+    name: "WaybetterDesktop",
     platforms: [
         .macOS(.v14)
     ],
@@ -14,7 +14,7 @@ let package = Package(
     ],
     targets: [
         .executableTarget(
-            name: "AudioWhisper",
+            name: "WaybetterDesktop",
             dependencies: ["Alamofire", "HotKey", "WhisperKit"],
             path: "Sources",
             exclude: ["VersionInfo.swift.template"],
@@ -31,8 +31,8 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "AudioWhisperTests",
-            dependencies: ["AudioWhisper"],
+            name: "WaybetterDesktopTests",
+            dependencies: ["WaybetterDesktop"],
             path: "Tests",
             exclude: ["README.md", "test_parakeet_transcribe.py", "__Snapshots__"]
         )
