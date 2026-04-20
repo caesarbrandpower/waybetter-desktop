@@ -32,7 +32,7 @@ internal struct DashboardPermissionsView: View {
             } header: {
                 Text("Microphone")
             } footer: {
-                Text("AudioWhisper needs microphone access to record audio for transcription.")
+                Text("Waybetter Desktop needs microphone access to record audio for transcription.")
             }
 
             if enableSmartPaste {

@@ -53,7 +53,7 @@ internal class AccessibilityPermissionManager {
             let alert = NSAlert()
             alert.messageText = "Accessibility Permission Required for SmartPaste"
             alert.informativeText = """
-            AudioWhisper's SmartPaste feature needs Accessibility permission to automatically paste transcribed text into your applications.
+            Waybetter Desktop's SmartPaste feature needs Accessibility permission to automatically paste transcribed text into your applications.
             
             🎯 What SmartPaste Does:
             • Automatically pastes transcribed text into the app you were using before recording
@@ -61,16 +61,16 @@ internal class AccessibilityPermissionManager {
             • Provides a hands-free voice-to-text workflow
             
             🔒 Privacy Protection:
-            • AudioWhisper ONLY sends paste commands (⌘V) to applications
+            • Waybetter Desktop ONLY sends paste commands (⌘V) to applications
             • It never reads, monitors, or accesses content from other applications
             • No screen recording or keylogging occurs
             • All transcription happens locally on your device
             
             ⚙️ What Happens Next:
             • Click "Grant Permission" to open System Settings
-            • Find AudioWhisper in Privacy & Security → Accessibility
+            • Find Waybetter Desktop in Privacy & Security → Accessibility
             • Toggle the switch to enable the permission
-            • Return to AudioWhisper to use SmartPaste
+            • Return to Waybetter Desktop to use SmartPaste
             
             ✋ Alternative:
             If you prefer manual control, click "Continue Without SmartPaste" and use ⌘V to paste transcribed text yourself.
@@ -160,7 +160,7 @@ internal class AccessibilityPermissionManager {
         
         SmartPaste is now enabled and will automatically paste transcribed text into your applications.
         
-        You can disable SmartPaste anytime in AudioWhisper's Settings if you prefer manual control.
+        You can disable SmartPaste anytime in Waybetter Desktop's Settings if you prefer manual control.
         """
         alert.alertStyle = .informational
         alert.addButton(withTitle: "Great!")
@@ -183,7 +183,7 @@ internal class AccessibilityPermissionManager {
         💡 What to do next:
         • Try using SmartPaste - it might work now
         • Use Settings → Show Manual Instructions to set it up manually
-        • Restart AudioWhisper if the permission still doesn't work
+        • Restart Waybetter Desktop if the permission still doesn't work
         
         You can always paste transcribed text manually using ⌘V.
         """
@@ -212,9 +212,9 @@ internal class AccessibilityPermissionManager {
             • Automation tools like Keyboard Maestro
             • Text expanders and productivity apps
             
-            🔍 Why AudioWhisper Needs This Permission:
+            🔍 Why Waybetter Desktop Needs This Permission:
             
-            AudioWhisper needs to send a simple "paste" command (equivalent to pressing ⌘V) to place transcribed text in the right location. Without this permission, you'd need to manually:
+            Waybetter Desktop needs to send a simple "paste" command (equivalent to pressing ⌘V) to place transcribed text in the right location. Without this permission, you'd need to manually:
             1. Remember which app you were using
             2. Switch back to that app
             3. Find the right text field
@@ -222,7 +222,7 @@ internal class AccessibilityPermissionManager {
             
             🔒 Security Safeguards:
             
-            • AudioWhisper is sandboxed and can't access other app's data
+            • Waybetter Desktop is sandboxed and can't access other app's data
             • It only sends paste commands, never reads content
             • All permissions are revocable in System Settings
             • You maintain full control over when recordings happen
@@ -245,16 +245,16 @@ internal class AccessibilityPermissionManager {
             
             1. Open System Settings (click "Open Settings" below)
             2. Go to Privacy & Security → Accessibility
-            3. Find AudioWhisper in the list
+            3. Find Waybetter Desktop in the list
             4. Toggle the switch to enable it
-            5. Return to AudioWhisper
+            5. Return to Waybetter Desktop
             
-            If AudioWhisper isn't in the list, you may need to add it manually using the "+" button.
+            If Waybetter Desktop isn't in the list, you may need to add it manually using the "+" button.
             
             💡 Troubleshooting:
             • If the toggle appears grayed out, click the lock icon and enter your password
-            • If AudioWhisper doesn't appear in the list, try restarting AudioWhisper
-            • You may need to remove and re-add AudioWhisper if it's not working
+            • If Waybetter Desktop doesn't appear in the list, try restarting Waybetter Desktop
+            • You may need to remove and re-add Waybetter Desktop if it's not working
             """
             alert.alertStyle = .informational
             alert.addButton(withTitle: "Open System Settings")
@@ -309,9 +309,9 @@ internal class AccessibilityPermissionManager {
                 troubleshootingInfo: """
                 To enable SmartPaste:
                 1. Open System Settings → Privacy & Security → Accessibility
-                2. Add AudioWhisper to the list (using + button if needed)
-                3. Toggle the switch to enable AudioWhisper
-                4. Restart AudioWhisper if needed
+                2. Add Waybetter Desktop to the list (using + button if needed)
+                3. Toggle the switch to enable Waybetter Desktop
+                4. Restart Waybetter Desktop if needed
                 """
             )
         }
@@ -330,9 +330,9 @@ internal class AccessibilityPermissionManager {
             You can still enable SmartPaste manually:
             1. Open System Settings
             2. Go to Privacy & Security → Accessibility
-            3. Add AudioWhisper and enable it
+            3. Add Waybetter Desktop and enable it
             
-            Or continue using AudioWhisper without SmartPaste - transcribed text will be copied to your clipboard for manual pasting.
+            Or continue using Waybetter Desktop without SmartPaste - transcribed text will be copied to your clipboard for manual pasting.
             """
             alert.alertStyle = .warning
             alert.addButton(withTitle: "Open System Settings")
@@ -351,11 +351,11 @@ internal class AccessibilityPermissionManager {
             let alert = NSAlert()
             alert.messageText = "SmartPaste Disabled"
             alert.informativeText = """
-            AudioWhisper will continue to work without SmartPaste functionality.
+            Waybetter Desktop will continue to work without SmartPaste functionality.
             
             Transcribed text will be copied to your clipboard, and you can paste it manually using ⌘V.
             
-            You can enable SmartPaste anytime in AudioWhisper Settings → General → Accessibility Permissions.
+            You can enable SmartPaste anytime in Waybetter Desktop Settings → General → Accessibility Permissions.
             """
             alert.alertStyle = .informational
             alert.addButton(withTitle: "OK")
